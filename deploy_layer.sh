@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/usr/bin/bash
 
-source env.sh
+source env
 
 cd layer
 
@@ -13,9 +13,9 @@ docker run --rm -v $(pwd)/volume:/volume:z "$LAMBDA_NAME"
 aws lambda publish-layer-version --layer-name "$LAMBDA_NAME"-layer \
                                  --description "python3.6 layer for $LAMBDA_NAME" \
                                  --compatible-runtimes python3.6 \
-                                 --zip-file fileb://volume/layer.zip | tee json
+                                 --zip-file fileb://volume/layer.zip | tee log.json
 
 #aws lambda update-function-configuration --function-name "$LAMBDA_NAME" \
-#                                         --layers $(jq -r '.LayerVersionArn' json)
+#                                         --layers $(jq -r '.LayerVersionArn' log.json)
 
-rm -rf volume json
+rm -rf volume log.json

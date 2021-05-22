@@ -1,11 +1,12 @@
-#!/bin/bash
+#!/usr/bin/bash
 
-source env.sh
+source env
 
 cd function
 
-zip function.zip *
+zip function.zip .
 
-aws lambda update-function-code --function-name "$LAMBDA_NAME" --zip-file fileb://function.zip
+aws lambda update-function-code --function-name "$LAMBDA_NAME" \
+                                --zip-file fileb://function.zip
 
 rm function.zip

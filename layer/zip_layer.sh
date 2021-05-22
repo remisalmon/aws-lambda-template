@@ -1,5 +1,5 @@
 #!/bin/bash
 
-cd /layer
+cd layer
 
-zip -r9 /volume/layer.zip .
+zip -r /volume/layer.zip .
