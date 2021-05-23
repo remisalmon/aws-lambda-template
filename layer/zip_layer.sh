@@ -2,4 +2,4 @@
 
 cd layer
 
-zip -r /volume/layer.zip .
+zip -r ../volume/layer.zip .

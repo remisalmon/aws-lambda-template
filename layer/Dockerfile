@@ -7,7 +7,7 @@ RUN yum update -y && \
 
 COPY requirements.txt zip_layer.sh .
 
-RUN mkdir -p /layer/python && \
+RUN mkdir -p layer/python && \
     python3.8 -m venv venv && \
     source venv/bin/activate && \
     python3.8 -m pip install -U pip setuptools && \
