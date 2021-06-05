@@ -4,7 +4,7 @@ source env
 
 cd layer
 
-mkdir volume
+mkdir -p volume
 
 docker build -t "$LAMBDA_NAME" .
 
@@ -18,4 +18,4 @@ aws lambda publish-layer-version --layer-name "$LAMBDA_NAME"-layer \
 #aws lambda update-function-configuration --function-name "$LAMBDA_NAME" \
 #                                         --layers $(jq -r '.LayerVersionArn' log.json)
 
-rm -rf volume log.json
+rm -r volume log.json
